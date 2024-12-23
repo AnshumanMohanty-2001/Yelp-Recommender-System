@@ -1,13 +1,14 @@
 """
 Method Description
-I have worked on my Model-Based Recommender System from HW-3, leveraging XGBoost to predict user ratings for businesses using the Yelp Reviews Dataset.
+I have worked on my Model-Based Recommender System, leveraging XGBoost to predict user ratings for businesses using the Yelp Reviews Dataset.
 
-To enhance the model, I increased the number of features extracted from user.json, business.json, tip.json, and photo.json. While I considered using features from review_train.json, I ultimately decided against it since the validation set lacked corresponding review-related features. To address the cold-start problem, I assigned average rating values of 3.76 for new users and 3.75 for new businesses, based on overall dataset averages. This adjustment reduced the RMSE by 0.0035 compared to my HW-3 results. Additionally, including the state feature led to a further RMSE reduction of 0.0007. After consolidating these features into a NumPy array, I applied MinMax normalization to scale them effectively. These improvements brought the RMSE down from 0.9852 in HW-3 to 0.9810 in this project.
+To enhance the model, I increased the number of features extracted from user.json, business.json, tip.json, and photo.json. While I considered using features from review_train.json, I ultimately decided against it since the validation set lacked corresponding review-related features. To address the cold-start problem, I assigned average rating values of 3.76 for new users and 3.75 for new businesses, based on overall dataset averages. This adjustment reduced the RMSE by 0.0035 compared to my HW-3 results. Additionally, including the state feature led to a further RMSE reduction of 0.0007. After consolidating these features into a NumPy array, I applied MinMax normalization to scale them effectively. These improvements brought the RMSE down from 0.9852 to 0.9810 in this project.
 
 To optimize the model further, I employed Optuna for hyperparameter tuning with an extensive search space and 2-fold cross-validation. This approach reduced the RMSE to 0.9753 on the validation set. I also experimented with a Gradient Boosting Regressor model using the same preprocessing steps and explored hybrid approaches by combining item-based collaborative filtering with the XGBoost model. Despite these attempts, the XGBoost solution provided the best results for the final submission.
 
 Error Distribution
->=0 and <1: 102682                                                                                                                                                          >=1 and <2: 32446                           
+>=0 and <1: 102682                                                                                                                                                          
+>=1 and <2: 32446                           
 >=2 and <3: 6090            
 >=3 and <4: 824            
 >=4: 2 
